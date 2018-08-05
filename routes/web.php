@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','viewController@loadMain');
+Route::get('/','viewController@loadDashboard');
