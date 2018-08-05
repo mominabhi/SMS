@@ -13,4 +13,9 @@
 <link rel="stylesheet" type="text/css" href="{{asset('public/copy_assets/')}}/css/plugins.min.css">
 <link rel="stylesheet" type="text/css" href="{{asset('public/copy_assets/')}}/css/pratham.min.css">
 
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
 <title>School Management System</title>

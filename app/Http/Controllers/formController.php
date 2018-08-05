@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\secModel;
-use Illuminate\Http\Request;
+use Request;
+use Illuminate\Support\Facades\Redirect;
 
-class viewController extends Controller
+class formController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,6 @@ class viewController extends Controller
     public function index()
     {
         //
-
     }
 
     /**
@@ -84,26 +84,46 @@ class viewController extends Controller
         //
     }
 
+    /**
+     * All Forms are here
+     */
 
-    /* My Code Start From here */
+    public function newSection(Request $request){
 
-    /* load all the page */
+        $sec = new secModel();
 
-    public function loadMain(){
-        return view('main');
+        $sec->name = $request->name;
+        $sec->save();
+
+        return Redirect::to('add_sec');
     }
-    public function loadDashboard(){
 
-        $dashboard = view('pages.dashboard');
-        return view('main')->with('main_content',$dashboard);
+    public function deleteSection($id){
+        $sec = secModel::where('id',$id)->first();
+        $sec->delete();
+
+        return Redirect::to('add_sec');
+
     }
-    public function loadSection(){
+    public function editSection($id){
 
-        $sec_id_edit = 0;
         $sections = secModel::orderBy('name','asc')->get();
-        $addSection = view('pages.addSection')
+
+        $sec = secModel::where('id',$id)->first();
+        $sec_id_edit = $sec->id;
+
+        $secView = view('pages.addSection')
             ->with('sec_id_edit',$sec_id_edit)
             ->with('sections',$sections);
-        return view('main')->with('main_content',$addSection);
+
+        return view('main')->with('main_content',$secView);
+    }
+
+    public function updateSection(Request $request){
+       // $sec = secModel::where('id',$request->id)->first();
+
+        print_r($_POST);
+        echo "<br>".$_POST['name'];
+        echo "<br>".$request->name;
     }
 }

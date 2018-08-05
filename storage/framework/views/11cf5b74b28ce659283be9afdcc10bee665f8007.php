@@ -5,7 +5,8 @@
             <nav class="sidebar-nav collapse">
                 <ul class="list-unstyled sidebar-menu">
                     <li class="sidenav-heading text-uppercase">Dashboards</li>
-                    <li class="has-children active opened"><a href="javascript:;"><i class="fa fa-tachometer"
+
+                    <li class="has-children  opened active" onclick="makeActive(this)"><a href="javascript:;"><i class="fa fa-tachometer"
                                                                                      aria-hidden="true"></i><span>Dashboard</span></a>
                         <ul class="list-unstyled sub-menu">
                             <li><a href="index.html" class="active"><span>Dashboard 1</span></a></li>
@@ -14,8 +15,23 @@
                                             class="badge badge-primary">2</span></a></li>
                         </ul>
                     </li>
+
                     <li class="sidenav-heading text-uppercase">Features</li>
-                    <li class="has-children"><a href="javascript:;"><i class="fa fa-sliders"
+
+                    
+                    <li class="has-children" onclick="makeActive(this)" id="class"><a href="javascript:;"  ><i class="fa fa-edit"
+                                                                                     aria-hidden="true"></i><span>Class</span></a>
+                        <ul class="list-unstyled sub-menu collapse" >
+                            <li><a href="#" class=""><span> Add Class</span></a></li>
+                            <li><a href="#"><span>Total Class</span></a></li>
+                            <li><a href="<?php echo e(url('add_sec')); ?>"><span>Add Sec</span></a></li>
+                            <li><a href="#"><span>Total Sec</span></a></li>
+                        </ul>
+                    </li>
+                    
+
+
+                    <li class="has-children" onclick="makeActive(this)" ><a href="javascript:;"><i class="fa fa-sliders"
                                                                        aria-hidden="true"></i><span>UI Elements</span></a>
                         <ul class="list-unstyled sub-menu collapse">
                             <li><a href="ui-buttons.html"><span>Buttons</span></a></li>
@@ -260,3 +276,18 @@
         </div>
     </div>
 </div>
+
+<script>
+
+
+    function makeActive(element){
+
+        var els = document.getElementsByClassName('active')
+
+            for (var i = 0; i < els.length; i++) {
+                els[i].classList.remove('active')
+            }
+
+        element.classList.add('active');
+    }
+</script>
