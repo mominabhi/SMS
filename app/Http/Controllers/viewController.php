@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\secModel;
+use App\Db_class;
+use App\Db_sec;
 use Illuminate\Http\Request;
 
 class viewController extends Controller
@@ -100,10 +101,23 @@ class viewController extends Controller
     public function loadSection(){
 
         $sec_id_edit = 0;
-        $sections = secModel::orderBy('name','asc')->get();
+        $sections = Db_sec::orderBy('name','asc')->get();
         $addSection = view('pages.addSection')
             ->with('sec_id_edit',$sec_id_edit)
             ->with('sections',$sections);
         return view('main')->with('main_content',$addSection);
+    }
+    public function loadClass(){
+
+        $class_id_edit = 0;
+        $classes = Db_class::orderBy('name','asc')->get();
+        $sections = Db_sec::orderBy('name','asc')->get();
+
+        $addClass = view('pages.addClass')
+            ->with('class_id_edit',$class_id_edit)
+            ->with('classes',$classes)
+            ->with('sections',$sections);
+
+        return view('main')->with('main_content',$addClass);
     }
 }

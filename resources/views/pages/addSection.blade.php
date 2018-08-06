@@ -17,7 +17,7 @@
                     <label> Section Name:  </label>
                     <input type="text" class="form-control" name="name">
                 <br>
-                    <input type="submit" class="form-control btn btn-success">
+                    <input type="submit" class="form-control btn btn-success" value="Add New Sec">
                 {!! Form::close() !!}
             </div>
 

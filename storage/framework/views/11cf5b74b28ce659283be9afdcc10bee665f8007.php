@@ -10,9 +10,6 @@
                                                                                      aria-hidden="true"></i><span>Dashboard</span></a>
                         <ul class="list-unstyled sub-menu">
                             <li><a href="index.html" class="active"><span>Dashboard 1</span></a></li>
-                            <li><a href="dashboard-v2.html"><span>Dashboard 2</span></a></li>
-                            <li><a href="dashboard-v3.html"><span>Dashboard 3</span><span
-                                            class="badge badge-primary">2</span></a></li>
                         </ul>
                     </li>
 
@@ -22,10 +19,8 @@
                     <li class="has-children" onclick="makeActive(this)" id="class"><a href="javascript:;"  ><i class="fa fa-edit"
                                                                                      aria-hidden="true"></i><span>Class</span></a>
                         <ul class="list-unstyled sub-menu collapse" >
-                            <li><a href="#" class=""><span> Add Class</span></a></li>
-                            <li><a href="#"><span>Total Class</span></a></li>
+                            <li><a href="<?php echo e(url('add_class')); ?>" class=""><span> Add Class</span></a></li>
                             <li><a href="<?php echo e(url('add_sec')); ?>"><span>Add Sec</span></a></li>
-                            <li><a href="#"><span>Total Sec</span></a></li>
                         </ul>
                     </li>
                     
